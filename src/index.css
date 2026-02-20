@@ -152,6 +152,16 @@
   animation: hero-fade-up 0.5s ease-out 0.3s both;
 }
 
+/* Hero image clip-path wipe reveal */
+@keyframes clip-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.clip-reveal {
+  animation: clip-reveal 0.8s ease-out 0.2s both;
+}
+
 /* Nav link underline animation */
 .nav-link {
   position: relative;

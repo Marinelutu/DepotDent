@@ -1,12 +1,19 @@
 import ScrollReveal from "./ScrollReveal";
-
-const stats = [
-  { number: "47", label: "Years of Service" },
-  { number: "25", label: "Oklahoma Locations" },
-  { number: "545", label: "Team Members" },
-];
+import { useCountUp } from "@/hooks/useCountUp";
 
 const AboutStrip = () => {
+  const years = useCountUp({ end: 47, duration: 2000 });
+  const locations = useCountUp({ end: 25, duration: 1800 });
+  const team = useCountUp({ end: 545, duration: 2200 });
+  const smiles = useCountUp({ end: 127, duration: 2500, suffix: ",000+" });
+
+  const stats = [
+    { ref: years.ref, value: years.value, label: "Years of Service" },
+    { ref: locations.ref, value: locations.value, label: "Oklahoma Locations" },
+    { ref: team.ref, value: team.value, label: "Team Members" },
+    { ref: smiles.ref, value: smiles.value, label: "Smiles and Counting" },
+  ];
+
   return (
     <section className="bg-near-black py-large md:py-xlarge overflow-hidden">
       <div className="mx-auto max-w-content px-6 md:px-[80px]">
@@ -32,8 +39,8 @@ const AboutStrip = () => {
             <div className="flex flex-col gap-8">
               {stats.map((s) => (
                 <div key={s.label} className="reveal-child">
-                  <span className="font-display font-bold text-brand-blue text-[72px] md:text-[96px] leading-none">
-                    {s.number}
+                  <span ref={s.ref} className="font-display font-bold text-brand-blue text-[72px] md:text-[96px] leading-none">
+                    {s.value}
                   </span>
                   <span className="block font-body text-primary-foreground text-base mt-1">{s.label}</span>
                 </div>

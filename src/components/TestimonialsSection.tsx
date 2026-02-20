@@ -79,8 +79,9 @@ const TestimonialsSection = () => {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-[300px] md:w-[360px] snap-start bg-card border border-border rounded-[20px] p-6 flex flex-col"
+                className="flex-shrink-0 w-[300px] md:w-[360px] snap-start bg-card border border-border rounded-[20px] p-6 flex flex-col relative overflow-hidden"
               >
+                <span className="absolute -top-2 left-4 font-display text-[120px] leading-none text-brand-blue/[0.06] select-none pointer-events-none">"</span>
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} size={16} className="fill-star-gold text-star-gold" />
